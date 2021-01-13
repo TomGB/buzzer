@@ -6,7 +6,9 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
-const title = 'Buffer Buzzer'
+const port = process.env.PORT || 8080
+
+const title = 'Bani Buzzer'
 
 let data = {
   users: new Set(),
@@ -47,4 +49,4 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(8090, () => console.log('Listening on 8090'))
+server.listen(port, () => console.log('Listening on '+port))
